@@ -1,0 +1,27 @@
+<div class="alert alert-danger" role="alert" ng-if="locationDenied">You must enable the location services to use this app.</div>
+
+<uib-tabset active="active" ng-class="{'no-location': locationDenied}">
+    <uib-tab disable="tab.disabled" heading="Ride Details" index="0">
+        <form class="container well">
+            <div class="form-group">
+                <label for="origins">Source</label>
+                <input class="form-control" id="origins" ng-model="indexCtrl.rideDetails.origins" placeholder="Source" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input class="form-control" id="destination" ng-model="indexCtrl.rideDetails.destinations" placeholder="Destination" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="rideTime">Time</label>
+                <input class="form-control" id="rideTime" ng-model="indexCtrl.rideDetails.time" placeholder="Time" type="time" />
+            </div>
+
+            <div class="form-group">
+                <label for="userEmail">Time</label>
+                <input class="form-control" id="userEmail" ng-model="indexCtrl.userDetails.email" placeholder="Your Email" type="email" />
+            </div>
+
+            <button class="btn btn-default" ng-click="indexCtrl.setTimer()" type="submit">Remind Me</button>
+        </form>
+    </uib-tab>
+</uib-tabset>
