@@ -13,19 +13,10 @@ app.use(cors({
 }));
 
 app.get('/driving-time', function(req, res) {
-    var options = {
-        hostname: 'maps.googleapis.com',
-        port: 80,
-        path: '/maps/api/distancematrix/json?' + qs.stringify(req.query),
-        method: 'GET',
-        json: true
-    };
+    var url = 'https://maps.googleapis.com' + '/maps/api/distancematrix/json?' + qs.stringify(req.query);
 
-    request(options, function(error, response, body) {
-        console.log(body);
-        res.send(body);
-    }).on("error", function(e) {
-        console.log("Got error: " + e.message);
+    request(url, function(error, response, body) {
+        res.json(body);
     });
 });
 

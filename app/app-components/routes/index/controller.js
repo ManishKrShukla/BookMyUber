@@ -22,11 +22,12 @@ angular.module('meetutuApp').controller('IndexCtrl', ['$q', 'HttpService', '$tim
 
     scope.setTimer = function() {
         httpService.loadDrivingTime(scope.rideDetails).then((response) => {
-            let details = response[0].elements;
+            let details = JSON.parse(response.data).rows[0].elements[0];
 
             if (details) {
                 scope.timeTaken = Math.ceil(details.duration.value / 60);
             }
+
         });
     }
 
